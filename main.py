@@ -1,48 +1,43 @@
-from projectmanager import Projectmanager
-
+from projectmanager import ProjectManager
+import datetime
+from colorama import Fore, Style
 
 def main():
-
-    prj = Projectmanager()
+    prj_manager = ProjectManager()
 
     while True:
-        print('\n Construction Management System')
+        print(f"\n{Fore.CYAN}=== Construction Management System ==={Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}1. Add Project{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}2. View Projects{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}3. Remove Project{Style.RESET_ALL}")
+        print(f"{Fore.YELLOW}4. Exit{Style.RESET_ALL}")
+        print(f"{Fore.MAGENTA}======================================={Style.RESET_ALL}")
 
-        print('1. Add Project')
-        print('2. View Project')
-        print('3. Remove Project')
-        print('4. Exit')
-
-        choice = input("Enter your choice : ")
-
-
-        # Responding according to user choice
+        choice = input("Enter your choice (1-4): ")
 
         if choice == "1":
+            name = input("Enter project name: ")
+            start_date = datetime.datetime.strptime(input("Enter Start Date (YYYY-MM-DD): "), '%Y-%m-%d').date()
+            end_date = datetime.datetime.strptime(input("Enter End Date (YYYY-MM-DD): "), '%Y-%m-%d').date()
+            budget = float(input("Enter Budget: "))
+            prj_manager.add_project(name, start_date, end_date, budget)
 
-            name = input("Enter project name:")
+        elif choice == "2":
+            prj_manager.view_projects()
 
-            start_date = input("Enter Start Date: (YYYY-MM-DD):")
+        elif choice == "3":
+            prj_manager.view_projects()
+            index = int(input("Enter project index to remove: "))
+            prj_manager.remove_project(index)
 
-            end_date = input('Enter End Date: (YYYY/MM/DD):')
-
-            budget =  float(input('Enter Budget:'))
-
-            prj.add_project(name, start_date, end_date, budget)
-
-        elif choice == '2':
-            prj.view_projects()
-        
-        elif choice == '3':
-            prj.view_projects()
-            index = int(input('Enter project index to remove:'))
-            prj.remove_project(index)
-
-        elif choice == '4':
-            print('Exiting the System')
+        elif choice == "4":
+            print(f"{Fore.RED}Exiting the System. Goodbye!{Style.RESET_ALL}")
             break
-        else :
-            print("Invalid choice. Please Try Again ")
+
+        else:
+            print(f"{Fore.RED}Invalid choice. Please try again.{Style.RESET_ALL}")
 
 if __name__ == '__main__':
     main()
+
+
