@@ -1,7 +1,6 @@
-from sqlalchemy import create_engine, Column, Integer, String, Float, Date 
-from sqlalchemy.ext.declarative import declarative_base 
-from sqlalchemy.orm import sessionmaker 
-import datetime
+from sqlalchemy import Column, Integer, String, Date, Float, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
@@ -14,14 +13,10 @@ class Project(Base):
     end_date = Column(Date, nullable=False)
     budget = Column(Float, nullable=False)
 
-    def __str__(self) -> str:
-        return f'Project Name: {self.name}, Start Date: {self.start_date}, End Date: {self.end_date}, Budget: {self.budget}'
-    
+    tasks = relationship("Task", back_populates="project")
 
-DATABASE_URL = 'sqlite:///projects.db'
-engine = create_engine(DATABASE_URL)
-Base.metadata.create_all(engine)
-Session = sessionmaker(bind=engine)
+    def __repr__(self):
+        return f"<Project(id={self.id}, name={self.name}, start_date={self.start_date}, end_date={self.end_date}, budget={self.budget})>"
 
-
-   
+class Session:
+    pass  # Session handling can be implemented here if needed
