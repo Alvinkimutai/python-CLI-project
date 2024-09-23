@@ -18,5 +18,4 @@ class Project(Base):
     def __repr__(self):
         return f"<Project(id={self.id}, name={self.name}, start_date={self.start_date}, end_date={self.end_date}, budget={self.budget})>"
 
-class Session:
-    pass  # Session handling can be implemented here if needed
+
