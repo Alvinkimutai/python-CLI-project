@@ -13,7 +13,7 @@ def main():
     prj_manager = ProjectManager(engine)
 
     while True:
-        print(f"\n{Fore.CYAN}=== Construction Management System ==={Style.RESET_ALL}")
+        print(f"\n{Fore.CYAN}=== Welcome to EASY Construction Management ==={Style.RESET_ALL}")
         print(f"{Fore.YELLOW}1. Add Project{Style.RESET_ALL}")
         print(f"{Fore.YELLOW}2. View Projects{Style.RESET_ALL}")
         print(f"{Fore.YELLOW}3. Remove Project{Style.RESET_ALL}")
