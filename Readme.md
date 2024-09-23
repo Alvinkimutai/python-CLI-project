@@ -1,6 +1,9 @@
 # EASY Construction Manager #
 - EASY Construction Manger is a CLI in python that allows stakeholders in the construction business manage their projects. It is suitable for any field of construction i.e. **Road/Highway construction**, **Buildings** and Even **water projects**.
 
+### link to a video describing the project ##
+[https://drive.google.com/file/d/10_pno-ydDMaOtNFaOTEtVE9PKzaodu10/view?usp=sharing]
+
 ***
 ## Composition ##
 - Easy is composed of seven python files, a database file, pycache files and Pipfile for the dependencies: 
